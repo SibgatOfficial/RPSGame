@@ -8,38 +8,40 @@ const getComputerChoice = function () {
     return "scissor";
   }
 };
-const getHumanChoice = function () {
-  let userChoice = prompt("Enter your choice?").toLowerCase();
-  return userChoice;
-};
+
 let computerScore = 0;
 let humanScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  if (
-    (humanChoice == "paper" && computerChoice == "rock") ||
-    (humanChoice == "scissor" && computerChoice == "paper") ||
-    (humanChoice == "rock" && computerChoice == "scissor")
-  ) {
-    humanScore++;
-    console.log("You won!");
-  } else if (
-    (humanChoice == "rock" && computerChoice == "paper") ||
-    (humanChoice == "paper" && computerChoice == "scissor") ||
-    (humanChoice == "scissor" && computerChoice == "rock")
-  ) {
-    computerScore++;
-    console.log("You Lose!");
+  if (humanScore <= 5 && computerScore <= 5) {
+    if (
+      (humanChoice == "paper" && computerChoice == "rock") ||
+      (humanChoice == "scissor" && computerChoice == "paper") ||
+      (humanChoice == "rock" && computerChoice == "scissor")
+    ) {
+      humanScore++;
+      document.querySelector(
+        "div"
+      ).textContent = `You won! \n Your score is: ${humanScore}\nComputer Score is: ${computerScore}`;
+    } else if (
+      (humanChoice == "rock" && computerChoice == "paper") ||
+      (humanChoice == "paper" && computerChoice == "scissor") ||
+      (humanChoice == "scissor" && computerChoice == "rock")
+    ) {
+      computerScore++;
+      document.querySelector(
+        "div"
+      ).textContent = `You lose! \n Your score is: ${humanScore}\nComputer Score is: ${computerScore}`;
+    } else {
+      document.querySelector(
+        "div"
+      ).textContent = `Draw! \nYour score is: ${humanScore}\nComputer Score is: ${computerScore}`;
+    }
   } else {
-    console.log("Draw!");
+    if (humanScore == 5) {
+      document.querySelector("div").textContent = "You Won!";
+    } else {
+      document.querySelector("div").textContent = "Computer Won!";
+    }
   }
 }
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
-  }
-  console.log(
-    `Your score is: ${humanScore}\nComputer Score is: ${computerScore}`
-  );
-}
-playGame();
