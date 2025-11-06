@@ -4,12 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RPS</title>
+    <style>
+      body {
+        background: blanchedalmond;
+      }
+      .all {
+        display: flex;
+        gap: 20px;
+      }
+      .section1,
+      .section2 {
+        font-size: 30px;
+        font-weight: bold;
+        background-color: antiquewhite;
+      }
+      .humanResult,
+      .computerResult {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: beige;
+        text-transform: capitalize;
+      }
+      .choices {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .result {
+        font-size: 30px;
+      }
+      .title {
+        font-size: 40px;
+      }
+      button {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 10px 10px 0 0;
+      }
+    </style>
   </head>
   <body>
-    <button onclick="playRound('rock',getComputerChoice())">Rock</button>
-    <button onclick="playRound('paper',getComputerChoice())">Paper</button>
-    <button onclick="playRound('scissor',getComputerChoice())">Scissor</button>
-    <div></div>
+    <div class="title">Rock Paper Scissor</div>
+    <div class="all">
+      <div class="section1">
+        <div class="humanResult"></div>
+        <div class="choices">
+          <button onclick="playRound('rock',getComputerChoice())">Rock</button>
+          <button onclick="playRound('paper',getComputerChoice())">
+            Paper
+          </button>
+          <button onclick="playRound('scissor',getComputerChoice())">
+            Scissor
+          </button>
+        </div>
+      </div>
+
+      <div class="section2">
+        <div class="computerResult"></div>
+      </div>
+
+      <div class="result"></div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

@@ -13,35 +13,43 @@ let computerScore = 0;
 let humanScore = 0;
 
 function playRound(humanChoice, computerChoice) {
-  if (humanScore <= 5 && computerScore <= 5) {
+  if (humanScore != 5 && computerScore != 5) {
     if (
       (humanChoice == "paper" && computerChoice == "rock") ||
       (humanChoice == "scissor" && computerChoice == "paper") ||
       (humanChoice == "rock" && computerChoice == "scissor")
     ) {
       humanScore++;
+      document.querySelector(".humanResult").innerHTML = humanChoice;
+      document.querySelector(".computerResult").innerHTML = computerChoice;
       document.querySelector(
-        "div"
-      ).textContent = `You won! \n Your score is: ${humanScore}\nComputer Score is: ${computerScore}`;
+        ".result"
+      ).innerHTML = `You won! \n Your score is: ${humanScore}\nComputer Score is: ${computerScore}`;
     } else if (
       (humanChoice == "rock" && computerChoice == "paper") ||
       (humanChoice == "paper" && computerChoice == "scissor") ||
       (humanChoice == "scissor" && computerChoice == "rock")
     ) {
       computerScore++;
+      document.querySelector(".humanResult").innerHTML = humanChoice;
+      document.querySelector(".computerResult").innerHTML = computerChoice;
       document.querySelector(
-        "div"
-      ).textContent = `You lose! \n Your score is: ${humanScore}\nComputer Score is: ${computerScore}`;
+        ".result"
+      ).innerHTML = `You lose! \n Your score is: ${humanScore}\nComputer Score is: ${computerScore}`;
     } else {
+      4;
+      document.querySelector(".humanResult").innerHTML = humanChoice;
+      document.querySelector(".computerResult").innerHTML = computerChoice;
       document.querySelector(
-        "div"
-      ).textContent = `Draw! \nYour score is: ${humanScore}\nComputer Score is: ${computerScore}`;
+        ".result"
+      ).innerHTML = `Draw! \nYour score is: ${humanScore}\nComputer Score is: ${computerScore}`;
     }
   } else {
+    document.querySelector(".choices").style.display = "none";
     if (humanScore == 5) {
-      document.querySelector("div").textContent = "You Won!";
+      document.querySelector(".result").innerHTML = "You Won!";
     } else {
-      document.querySelector("div").textContent = "Computer Won!";
+      document.querySelector(".result").innerHTML = "Computer Won!";
     }
   }
 }
